@@ -57,6 +57,9 @@ var data = {
   desc: "如果你不给你的团队一个凝聚的机会，你会花更多的时间来处理工作场所的戏剧和政治，而不是完成工作。"
 };
 
+alert(window.location.pathname.substring(0,window.location.pathname.lastIndexOf("/")+1) + "share.gif");
+alert(window.location.href);
+
 var onBridgeReady = function(){
   WeixinJSBridge.on('menu:share:appmessage', function(argv){
     WeixinJSBridge.invoke('sendAppMessage', {
