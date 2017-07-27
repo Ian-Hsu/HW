@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>团队凝聚的3个阶段</title><style type="text/css">@media screen and (min-width: 960px){div.main{width:864px; margin:36px auto; padding:8px; display:block; background-color:#fff;}}@media screen and (max-width: 960px){div.main{width:90%; margin:36px auto; padding:8px; display:block; background-color:#fff;}}img{display: inline-block; height: auto; max-width: 100%;}</style></head><body><div class="main"><h1 style="margin: 16px 0px; line-height: 42px; letter-spacing: 2px; font-family: 黑体; font-size: 28px;">团队凝聚的3个阶段</h1>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>团队凝聚的3个阶段</title><style type="text/css">@media screen and (min-width: 960px){div.main{width:864px; margin:36px auto; padding:8px; display:block; background-color:#fff;}}@media screen and (max-width: 960px){div.main{width:90%; margin:36px auto; padding:8px; display:block; background-color:#fff;}}img{display: inline-block; height: auto; max-width: 100%;}</style></head><body><div class="main" id="divContent"><h1 style="margin: 16px 0px; line-height: 42px; letter-spacing: 2px; font-family: 黑体; font-size: 28px;">团队凝聚的3个阶段</h1>
 <hr/>
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><em>你的团队不会因为他们一起工作而呆在一起。如果你不给你的团队一个凝聚的机会，你会花更多的时间来处理工作场所的戏剧和政治，而不是完成工作。你可以利用团队凝聚活动来鼓励办公室以外的合作，从而加强工作场所的联系。</em></p>
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><em>团队建设有助于每个人了解和信任他们的同事，但你们不会一夜之间建立信任。你的团队经历了从陌生人集合到高效合作者的渐进阶段。心理学家Bruce Tuckman的建队模式描述了三个阶段——形成阶段，规范阶段，和表现阶段——表明团队可以随时间更加团结。</em></p>
@@ -49,49 +49,9 @@
 </div>
 
 <script>
-var data = {
-  appId: "Ian's Blog",
-  img: window.location.href.substring(0,window.location.href.lastIndexOf("/")+1) + "share.gif",
-  url: window.location.href,
-  title: "团队凝聚的3个阶段",
-  desc: "如果你不给你的团队一个凝聚的机会，你会花更多的时间来处理工作场所的戏剧和政治，而不是完成工作。"
-};
-
-alert(window.location.href.substring(0,window.location.href.lastIndexOf("/")+1) + "share.gif");
-alert(window.location.href);
-
-var onBridgeReady = function(){
-  WeixinJSBridge.on('menu:share:appmessage', function(argv){
-    WeixinJSBridge.invoke('sendAppMessage', {
-        "appid": data.appId,
-        "img_url": data.img,
-        "img_width": "120",
-        "img_height": "120",
-        "link": data.url,
-        "title": data.title,
-        "desc": data.desc 
-    });
-    setTimeout(function () {;}, 1500); 
-  });
-  WeixinJSBridge.on('menu:share:timeline', function(argv){        
-    WeixinJSBridge.invoke('shareTimeline', {
-        "appid": data.appId,
-        "img_url": data.img,
-        "img_width": "120",
-        "img_height": "120",
-        "link": data.url,
-        "title": data.title,
-        "desc": data.desc 
-    });
-    setTimeout(function () {;}, 1500);  
-  });
-};
-if(document.addEventListener){
-  document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-}else if(document.attachEvent){
-  document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-  document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-}
+var image = document.createElement('img');
+image.src = 'http://pan.baidu.com/share/qrcode?w=150&h=150&url='+window.location.href;
+document.getElementById('divContent').appendChild(image);
 </script>
 
 
