@@ -57,27 +57,25 @@ image.style.top = '160px';
 image.style.right = '32px';
 document.getElementById('divContent').appendChild(image);
 
-
-alert(navigator.userAgent.indexOf('Android'));
-if(isPC){
+if(isPC()){
   alert('Yes on PC');
 }else{
   alert('No on mobile');
 }
 
-function isPC() {
-    var userAgentInfo = navigator.userAgent;
-    var Agents = ["Android", "iPhone",
-                "SymbianOS", "Windows Phone",
-                "iPad", "iPod"];
-    var flag = true;
-    for (var v = 0; v < Agents.length; v++) {
-        if (userAgentInfo.indexOf(Agents[v]) > 0) {
-            flag = false;
-            break;
-        }
-    }
-    return flag;
+function isPC(){
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];
+  var flag = true;
+  alert(flag);
+  for (var v = 0; v < Agents.length; v++){
+    if (userAgentInfo.indexOf(Agents[v]) > 0){
+      flag = false;
+      break;
+    }
+  }
+  alert(flag);
+  return flag;
 }
 </script>
 
