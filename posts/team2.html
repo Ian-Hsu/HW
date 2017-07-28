@@ -1,5 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>团队凝聚的3个阶段</title><style type="text/css">@media screen and (min-width: 960px){div.main{width:864px; margin:36px auto; padding:8px; display:block; background-color:#fff;}}@media screen and (max-width: 960px){div.main{width:90%; margin:36px auto; padding:8px; display:block; background-color:#fff;}}img{display: inline-block; height: auto; max-width: 100%;}</style></head><body><div class="main" id="divContent"><h1 style="margin: 16px 0px; line-height: 42px; letter-spacing: 2px; font-family: 黑体; font-size: 28px;">团队凝聚的3个阶段</h1>
-<hr/>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>团队凝聚的3个阶段</title><style type="text/css">@media screen and (min-width: 960px){div.main{width:864px; margin:24px auto; padding:8px; display:block; background-color:#fff;}}@media screen and (max-width: 960px){div.main{width:90%; margin:24px auto; padding:8px; display:block; background-color:#fff;}}img{display: inline-block; height: auto; max-width: 100%;}</style></head><body><div class="main" id="divContent"><h1 style="margin: 16px 0px; line-height: 42px; letter-spacing: 2px; font-family: 黑体; font-size: 28px;">团队凝聚的3个阶段</h1>
+<p style="text-align:left; color:#ccc">作者：blog.idonethis.com 翻译：Ian</p>
+<hr style="margin:32px 0px;"/>
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><em>你的团队不会因为他们一起工作而呆在一起。如果你不给你的团队一个凝聚的机会，你会花更多的时间来处理工作场所的戏剧和政治，而不是完成工作。你可以利用团队凝聚活动来鼓励办公室以外的合作，从而加强工作场所的联系。</em></p>
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><em>团队建设有助于每个人了解和信任他们的同事，但你们不会一夜之间建立信任。你的团队经历了从陌生人集合到高效合作者的渐进阶段。心理学家Bruce Tuckman的建队模式描述了三个阶段——形成阶段，规范阶段，和表现阶段——表明团队可以随时间更加团结。</em></p>
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><em>在表现阶段，每个人都在尽最大的潜力一起工作。如果你的团队达到了这个阶段，他们已经建立了最高层次的承诺、信任和相互支持。这意味着他们的工作效率最高，并有很强的动机实现团队目标。</em></p>
@@ -47,11 +48,35 @@
 <p style="margin: 16px 0px; line-height: 24px; letter-spacing: 0px; font-family: 宋体; font-size: 16px;"><a href="http://blog.idonethis.com/team-bonding/">原文链接</a></p>
 
 </div>
-
+<div style="position:fixed; top:280px; right:70px; ">扫码阅读</div>
 <script>
 var image = document.createElement('img');
-image.src = 'http://pan.baidu.com/share/qrcode?w=150&h=150&url='+window.location.href;
+image.src = 'http://pan.baidu.com/share/qrcode?w=128&h=128&url='+window.location.href;
+image.style.position = 'fixed';
+image.style.top = '160px';
+image.style.right = '32px';
 document.getElementById('divContent').appendChild(image);
+
+if(isPC){
+  alert('Yes on PC');
+}else{
+  alert('No on mobile');
+}
+
+function isPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
 </script>
 
 
