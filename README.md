@@ -1,3 +1,5 @@
+
+
 Github Page as Blog
 ==
 Use github page to publish my html blog.
@@ -11,6 +13,10 @@ the js file to convert markdown text to HTML pieces
 index.html
 ====
 the index of my html blog.
+
+blog.ico
+===
+my avatar
 
 posts/
 ====
