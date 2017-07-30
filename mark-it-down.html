@@ -102,14 +102,15 @@ function preView(){
       quotes[i].style.cssText = 'margin: 1.2em 10px;border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); padding: 0px 1em; color: rgb(119, 119, 119); quotes: none;';
     }
     
+    var hrs = document.getElementById('divPreviewHTML').getElementsByTagName('hr');
+    for (var i=0; i < hrs.length; i++){
+      hrs[i].style.cssText = 'margin:32px 0;color:#999';
+    }
+    
     var paragraphs = document.getElementById('divPreviewHTML').getElementsByTagName('p');
     for (var i=0; i < paragraphs.length; i++){
       if(i==0){
         paragraphs[i].style.cssText = 'font-family:宋体; font-size:16px; letter-spacing:0px; line-height:24px; margin:16px 0;color:#999';
-        var hr=document.createElement("hr");
-        hr.style.cssText = 'margin: 32px 0px;';
-        hr.style.color = '#999';
-        paragraphs[i].appendChild(hr);
       }else{
         paragraphs[i].style.cssText = 'font-family:宋体; font-size:16px; letter-spacing:0px; line-height:24px; margin:16px 0;';
       }
