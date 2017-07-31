@@ -110,7 +110,7 @@ function preView(){
     var paragraphs = document.getElementById('divPreviewHTML').getElementsByTagName('p');
     for (var i=0; i < paragraphs.length; i++){
       if(i==0){
-        paragraphs[i].style.cssText = 'font-family:宋体; font-size:14px; letter-spacing:0px; line-height:24px; margin:16px 0;color:#999';
+        paragraphs[i].style.cssText = 'font-family:宋体; font-size:12px; letter-spacing:0px; line-height:24px; margin:16px 0;color:#999';
       }else{
         paragraphs[i].style.cssText = 'font-family:宋体; font-size:16px; letter-spacing:0px; line-height:24px; margin:16px 0;';
       }
@@ -123,17 +123,17 @@ function preView(){
     
     var h1s = document.getElementById('divPreviewHTML').getElementsByTagName('h1');
     for (var i=0; i < h1s.length; i++){
-      h1s[i].style.cssText = 'font-family:黑体; font-size:28px; letter-spacing: 2px; line-height:42px; margin:16px 0;';
+      h1s[i].style.cssText = 'font-family:黑体; font-size:22px; letter-spacing: 2px; line-height:42px; margin:16px 0;';
     }
     
     var h2s = document.getElementById('divPreviewHTML').getElementsByTagName('h2');
     for (var i=0; i < h2s.length; i++){
-      h2s[i].style.cssText = 'font-family:黑体; font-size:24px; letter-spacing: 2px; line-height:36px; margin:12px 0;';
+      h2s[i].style.cssText = 'font-family:黑体; font-size:20px; letter-spacing: 2px; line-height:36px; margin:12px 0;';
     }
     
     var h3s = document.getElementById('divPreviewHTML').getElementsByTagName('h3');
     for (var i=0; i < h3s.length; i++){
-      h3s[i].style.cssText = 'font-family:黑体; font-size:20px; letter-spacing: 2px; line-height:30px; margin:8px 0;';
+      h3s[i].style.cssText = 'font-family:黑体; font-size:18px; letter-spacing: 2px; line-height:30px; margin:8px 0;';
     }
     
     document.getElementById('divPreview').style.display = 'block';
