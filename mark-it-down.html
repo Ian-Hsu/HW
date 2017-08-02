@@ -17,9 +17,8 @@
       div.navi{background-color:#d0f0f0; filter:alpha(opacity:70);opacity:0.7; position:absolute; top:0; left:0; width:100%; height:32px; line-height:30px; text-align:right;}
       a.button{background-color:#666;color:#fff;line-height:24px;text-decoration:none; margin:0 2px; padding:4px 8px; cursor:pointer; font-size:12px;}
       a.close{background-color:#666;padding:4px 8px}
-      a.copy{background-color:#0aa;}
-      a.save{background-color:#a0a;}
-      a.publish{background-color:#aa0;}
+      a.saveHTML{background-color:#a0a;}
+      a.saveMD{background-color:#aa0;}
       img{display:inline-block; height:auto; max-width:100%;}
     </style>
   </head>
@@ -34,30 +33,13 @@
   </div>
   <div id="divPreview" class="full" style="z-index:9; display:none;">
     <div id="divPreviewNavi" class="navi" style="position:fixed;">
-      <a onclick="saveHTMLAsFile();" class="button save">保存HTML</a>
-      <a id="aBtnCopyHTML" onclick="copyHTML();" class="button copy">复制HTML</a>
-      <a onclick="saveMarkdownAsFile();" class="button publish">保存Markdown</a>
+      <a onclick="saveHTMLAsFile();" class="button saveHTML">保存HTML</a>
+      <a onclick="saveMarkdownAsFile();" class="button saveMD">保存Markdown</a>
       <a class="button close" onclick="document.getElementById('divPreview').style.display='none';document.getElementById('divEdit').style.display='block';">x</a>
     </div>
     <div id="divPreviewHTML" class="main"></div>
   </div>
 <script type="text/javascript">
-function copyHTML(){
-  if(typeof Clipboard == 'undefined'){
-    loadScript('https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js', function(){
-        copyHTML();
-      });
-  }else{
-    var clipboard = new Clipboard(document.getElementById('aBtnCopyHTML'));
-    clipboard.on('success', function(e) {
-      alert('html片段已复制');
-    });
-    clipboard.on('error', function(e) {
-      console.log(e);
-    });
-  }
-}
-
 function saveHTMLAsFile(){
   var htmlToSave = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+document.getElementById('divPreviewHTML').getElementsByTagName('h1')[0].innerHTML+'</title><style type="text/css">@media screen and (min-width: 960px){div.main{width:864px; margin:8px auto; padding:8px; display:block; background-color:#fff;}}@media screen and (max-width: 960px){div.main{width:96%; margin:8px auto; padding:8px; display:block; background-color:#fff;}}img{display: inline-block; height: auto; max-width: 100%;}</style><link rel="shortcut icon"href="blog.ico"></head><body><div class="main">'+document.getElementById('divPreviewHTML').innerHTML+'</div><div id="divQRCode" style="position:fixed; top:180px; right:0; text-align:center; display:none"></div>'+'<script language="JavaScript">if(isPC()){window.onresize = function(){if((document.body.clientWidth)>=1160){document.getElementById("divQRCode").style.display = "block";if(document.getElementById("divQRCode").innerHTML == ""){document.getElementById("divQRCode").innerHTML = \'<img src="http://pan.baidu.com/share/qrcode?w=128&h=128&url=\' + window.location.href + \'" /><br / >扫码阅读\';}}else{document.getElementById("divQRCode").style.display = "none";}};window.onload = window.onresize;}function isPC(){var userAgentInfo = navigator.userAgent;var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];var flag = true;for (var v = 0; v < Agents.length; v++){if (userAgentInfo.indexOf(Agents[v]) > 0){flag = false;break;}}return flag;}<\/script>'+'</body></html>';
   var htmlToSaveAsBlob = new Blob([htmlToSave], {type:"text/plain;charset=utf-8"});
@@ -136,10 +118,7 @@ function preView(){
       h3s[i].style.cssText = 'font-family:黑体; font-size:18px; letter-spacing: 2px; line-height:30px; margin:8px 0;';
     }
     
-    document.getElementById('divPreview').style.display = 'block';
-    
-    document.getElementById('aBtnCopyHTML').setAttribute('data-clipboard-text',document.getElementById('divPreviewHTML').innerHTML);
-    
+    document.getElementById('divPreview').style.display = 'block';    
   }
     
 }
