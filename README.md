@@ -20,3 +20,7 @@ my avatar
 posts/
 ====
 my html files
+
+posts/images/
+====
+http://ian-hsu.github.io/blog/posts/images/
