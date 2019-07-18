@@ -19,6 +19,10 @@
       a.close{background-color:#666;padding:4px 8px}
       a.saveHTML{background-color:#a0a;}
       a.saveMD{background-color:#aa0;}
+      
+      table{width:96%; text-align:left; border-spacing:1px;}
+      thead th{background-color:#eee; padding:3px;}
+      tbody td{border-bottom:1px solid #eee; padding:3px; color:#111}
     </style>
   </head>
 <body>
@@ -40,7 +44,7 @@
   </div>
 <script type="text/javascript">
 function saveHTMLAsFile(){
-  var htmlToSave = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>\n'+document.getElementById('divPreviewHTML').getElementsByTagName('h1')[0].innerHTML+'\n</title>\n<style type="text/css">\n@media screen and (min-width: 960px){div.main{width:864px; margin:8px auto; padding:8px; display:block; background-color:#fff;}}\n@media screen and (max-width: 960px){div.main{width:96%; margin:8px auto; padding:8px; display:block; background-color:#fff;}}\nimg{display: inline-block; height: auto; max-width: 100%; margin:8px auto;}\n</style>\n<script>\nvar _hmt = _hmt || [];\n(function() {  var hm = document.createElement("script");  hm.src = "https://hm.baidu.com/hm.js?5e78d58dd74623a0970d8bab7f31e370";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();\n<\/script>\n<link rel="shortcut icon" href="blog.ico">\n</head>\n<body>\n<div class="main">\n'+document.getElementById('divPreviewHTML').innerHTML+'</div>\n<div id="divQRCode" style="position:fixed; top:180px; right:0; text-align:center; display:none"></div>\n'+'<script>\nif(isPC()){window.onresize = function(){if((document.body.clientWidth)>=1160){document.getElementById("divQRCode").style.display = "block";if(document.getElementById("divQRCode").innerHTML == ""){document.getElementById("divQRCode").innerHTML = \'<img src="http://pan.baidu.com/share/qrcode?w=128&h=128&url=\' + window.location.href + \'" /><br / >扫码阅读\';}}else{document.getElementById("divQRCode").style.display = "none";}};window.onload = window.onresize;}function isPC(){var userAgentInfo = navigator.userAgent;var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod"];var flag = true;for (var v = 0; v < Agents.length; v++){if (userAgentInfo.indexOf(Agents[v]) > 0){flag = false;break;}}return flag;}\n<\/script>\n'+'</body>\n</html>';
+  var htmlToSave = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>\n'+document.getElementById('divPreviewHTML').getElementsByTagName('h1')[0].innerHTML+'\n</title>\n<style type="text/css">\n@media screen and (min-width: 960px){div.main{width:864px; margin:8px auto; padding:8px; display:block; background-color:#fff;}}\n@media screen and (max-width: 960px){div.main{width:96%; margin:8px auto; padding:8px; display:block; background-color:#fff;}}\nimg{display: inline-block; height: auto; max-width: 100%; margin:8px auto;}\n</style>\n</head>\n<body>\n<div class="main">\n'+document.getElementById('divPreviewHTML').innerHTML+'</div>\n'+'</body>\n</html>';
   var htmlToSaveAsBlob = new Blob([htmlToSave], {type:"text/plain;charset=utf-8"});
   if(typeof saveAs == 'undefined'){
     loadScript('https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js',function(){
@@ -85,16 +89,24 @@ function preView(){
     
     var hrs = document.getElementById('divPreviewHTML').getElementsByTagName('hr');
     for (var i=0; i < hrs.length; i++){
-      hrs[i].style.cssText = 'margin:8px auto; height:1px;border:none;border-top:1px dashed #d0f0f0;';
+      hrs[i].style.cssText = 'margin:8px auto; height:1px;border:none;border-top:1px dashed #eeeeee;';
     }
     
     var paragraphs = document.getElementById('divPreviewHTML').getElementsByTagName('p');
     for (var i=0; i < paragraphs.length; i++){
-      /*if(i==0){
+      if(i==0){
         paragraphs[i].style.cssText = 'font-family:宋体; font-size:12px; letter-spacing:0px; line-height:24px; margin:16px 0;color:#999';
-      }else{*///20190101取消作者信息栏目
+      }else{
         paragraphs[i].style.cssText = 'font-family:宋体; font-size:16px; letter-spacing:0px; line-height:24px; margin:16px 0;';
-        //}
+      }
+      
+      //20190615为插入视频支持<iframe></iframe>
+      if(paragraphs[i].textContent.indexOf('<iframe')==0)
+      {
+        paragraphs[i].innerHTML = paragraphs[i].textContent;
+        paragraphs[i].style.cssText = 'display:inline-block; height:auto; width:96%; margin:8px auto; text-align: center';
+      }
+      
       //20190101增加只有图片的段落的处理
       images = paragraphs[i].getElementsByTagName('img');
       if(images.length > 0)
@@ -107,10 +119,18 @@ function preView(){
           var t=document.createTextNode(images[j].getAttribute("alt"));
           span.appendChild(t);
           span.style.cssText = 'display:inline-block; font-size:12px; text-align:left; color: #999; width:' + imageWidth + '%; ';
-          paragraphs[i].appendChild(span);
+          if(span.innerText==""){}else{
+            paragraphs[i].appendChild(span);
+          }
         }
       }
     }
+    
+    // 增加公众号二维码和介绍图片
+    var p=document.createElement("p");
+    p.innerHTML = '<img src="https://raw.githubusercontent.com/Ian-Hsu/blog/master/qrcode_for_gh_a2bdad27b343_258.jpg" /><br / >';
+    p.style.cssText = 'display:inline-block; height:auto;  width:96%; margin:8px auto; text-align: center';
+    document.getElementById('divPreviewHTML').appendChild(p);
     
     var lis = document.getElementById('divPreviewHTML').getElementsByTagName('li');
     for (var i=0; i < lis.length; i++){
@@ -129,7 +149,7 @@ function preView(){
     
     var h3s = document.getElementById('divPreviewHTML').getElementsByTagName('h3');
     for (var i=0; i < h3s.length; i++){
-      h3s[i].style.cssText = 'font-family:黑体; font-size:16px; letter-spacing: 2px; line-height:30px; margin:8px 0;';
+      h3s[i].style.cssText = 'font-family:黑体; font-size:18px; letter-spacing: 2px; line-height:30px; margin:8px 0;';
     }
     
     document.getElementById('divPreview').style.display = 'block';    
